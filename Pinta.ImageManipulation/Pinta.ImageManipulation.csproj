@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="BaseEffect.cs" />
     <Compile Include="BaseSurface.cs" />
+    <Compile Include="ColorBgraArrayWrapper.cs" />
     <Compile Include="Effects\AddNoiseEffect.cs" />
     <Compile Include="Effects\BulgeEffect.cs" />
     <Compile Include="Effects\CloudsEffect.cs" />

@@ -28,13 +28,11 @@ For example, if you are using System.Drawing, add Pinta.ImageManipulation.dll an
 
 ```csharp
 var src_bitmap = new System.Drawing.Bitmap (@"C:\pic.png");
-var dst_bitmap = new System.Drawing.Bitmap (src_bitmap.Width, src_bitmap.Height);
 
 var src_wrap = new BitmapWrapper (src_bitmap);
-var dst_wrap = new BitmapWrapper (dst_bitmap);
 
 var blur = new GaussianBlurEffect ();
-await blur.RenderAsync (src_wrap, dst_wrap);
+await blur.RenderAsync (src_wrap);
 
-dst_bitmap.Save (@"C:\pic2.png");
+src_bitmap.Save (@"C:\pic2.png");
 ```
