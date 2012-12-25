@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F8DF7505-B2E8-45CB-B7C4-B1A884BFF582}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pinta.ImageManipulation</RootNamespace>
+    <AssemblyName>Pinta.ImageManipulation</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseEffect.cs" />
+    <Compile Include="BaseSurface.cs" />
+    <Compile Include="Effects\AddNoiseEffect.cs" />
+    <Compile Include="Effects\BulgeEffect.cs" />
+    <Compile Include="Effects\CloudsEffect.cs" />
+    <Compile Include="Effects\ColorDifferenceEffect.cs" />
+    <Compile Include="Effects\AutoLevelEffect.cs" />
+    <Compile Include="Effects\BlackAndWhiteEffect.cs" />
+    <Compile Include="Effects\BrightnessContrastEffect.cs" />
+    <Compile Include="Effects\SepiaEffect.cs" />
+    <Compile Include="Effects\InvertColorsEffect.cs" />
+    <Compile Include="Effects\HueSaturationEffect.cs" />
+    <Compile Include="Effects\CurvesEffect.cs" />
+    <Compile Include="Effects\EdgeDetectEffect.cs" />
+    <Compile Include="Effects\ZoomBlurEffect.cs" />
+    <Compile Include="Effects\PolarInversionEffect.cs" />
+    <Compile Include="Effects\WarpEffect.cs" />
+    <Compile Include="Effects\UnfocusEffect.cs" />
+    <Compile Include="Effects\TwistEffect.cs" />
+    <Compile Include="Effects\TileEffect.cs" />
+    <Compile Include="Effects\SoftenPortraitEffect.cs" />
+    <Compile Include="Effects\SharpenEffect.cs" />
+    <Compile Include="Effects\ReliefEffect.cs" />
+    <Compile Include="Effects\ReduceNoiseEffect.cs" />
+    <Compile Include="Effects\RedEyeRemoveEffect.cs" />
+    <Compile Include="Effects\RadialBlurEffect.cs" />
+    <Compile Include="Effects\PixelateEffect.cs" />
+    <Compile Include="Effects\PencilSketchEffect.cs" />
+    <Compile Include="Effects\OutlineEffect.cs" />
+    <Compile Include="Effects\OilPaintingEffect.cs" />
+    <Compile Include="Effects\MotionBlurEffect.cs" />
+    <Compile Include="Effects\MedianEffect.cs" />
+    <Compile Include="Effects\MandelbrotFractalEffect.cs" />
+    <Compile Include="Effects\JuliaFractalEffect.cs" />
+    <Compile Include="Effects\GlowEffect.cs" />
+    <Compile Include="Effects\FrostedGlassEffect.cs" />
+    <Compile Include="Effects\FragmentEffect.cs" />
+    <Compile Include="Effects\EmbossEffect.cs" />
+    <Compile Include="Effects\GaussianBlurEffect.cs" />
+    <Compile Include="Effects\InkSketchEffect.cs" />
+    <Compile Include="Effects\LocalHistogramEffect.cs" />
+    <Compile Include="Enumerations\BlendMode.cs" />
+    <Compile Include="Enumerations\ColorTransferMode.cs" />
+    <Compile Include="Histogram.cs" />
+    <Compile Include="HistogramRGB.cs" />
+    <Compile Include="ParallelExtensions.cs" />
+    <Compile Include="PixelBlendOperations\AdditiveBlendOp.cs" />
+    <Compile Include="PixelBlendOperations\ColorBurnBlendOp.cs" />
+    <Compile Include="PixelBlendOperations\ColorDodgeBlendOp.cs" />
+    <Compile Include="PixelBlendOperations\ScreenBlendOp.cs" />
+    <Compile Include="PixelBlendOperations\DarkenBlendOp.cs" />
+    <Compile Include="PixelBlendOperations\LightenBlendOp.cs" />
+    <Compile Include="PixelBlendOperations\NegationBlendOp.cs" />
+    <Compile Include="PixelBlendOperations\DifferenceBlendOp.cs" />
+    <Compile Include="PixelBlendOperations\OverlayBlendOp.cs" />
+    <Compile Include="PixelBlendOperations\GlowBlendOp.cs" />
+    <Compile Include="PixelBlendOperations\ReflectBlendOp.cs" />
+    <Compile Include="PixelBlendOperations\MultiplyBlendOp.cs" />
+    <Compile Include="PixelBlendOperations\XorBlendOp.cs" />
+    <Compile Include="PixelBlendOperations\NormalBlendOp.cs" />
+    <Compile Include="ISurface.cs" />
+    <Compile Include="PixelOperations\BinaryPixelOp.cs" />
+    <Compile Include="PixelOperations\UnaryPixelOp.cs" />
+    <Compile Include="PixelOperations\UserBlendOp.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="SplineInterpolator.cs" />
+    <Compile Include="Structs\PointD.cs" />
+    <Compile Include="Structs\HsvColor.cs" />
+    <Compile Include="Structs\RgbColor.cs" />
+    <Compile Include="Structs\Size.cs" />
+    <Compile Include="Structs\Rectangle.cs" />
+    <Compile Include="Structs\Point.cs" />
+    <Compile Include="Structs\ColorBgra.cs" />
+    <Compile Include="PixelOperations\PixelOp.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnaryPixelOperations\ConstantOp.cs" />
+    <Compile Include="UnaryPixelOperations\BlendConstantOp.cs" />
+    <Compile Include="UnaryPixelOperations\AverageChannelsOp.cs" />
+    <Compile Include="UnaryPixelOperations\ChannelCurveOp.cs" />
+    <Compile Include="UnaryPixelOperations\PosterizePixelOp.cs" />
+    <Compile Include="UnaryPixelOperations\HueSaturationLightnessOp.cs" />
+    <Compile Include="UnaryPixelOperations\LevelOp.cs" />
+    <Compile Include="UnaryPixelOperations\LuminosityCurveOp.cs" />
+    <Compile Include="UnaryPixelOperations\DesaturateOp.cs" />
+    <Compile Include="UnaryPixelOperations\InvertWithAlphaOp.cs" />
+    <Compile Include="UnaryPixelOperations\RedEyeRemoveOp.cs" />
+    <Compile Include="UnaryPixelOperations\SetAlphaChannelTo255Op.cs" />
+    <Compile Include="UnaryPixelOperations\SetAlphaChannelOp.cs" />
+    <Compile Include="UnaryPixelOperations\SetChannelOp.cs" />
+    <Compile Include="UnaryPixelOperations\IdentityOp.cs" />
+    <Compile Include="UnaryPixelOperations\InvertOp.cs" />
+    <Compile Include="Utility.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
