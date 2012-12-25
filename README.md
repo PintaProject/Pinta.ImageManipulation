@@ -13,7 +13,7 @@ The same great effects that power Pinta are now available in a purely managed, g
 ##License
 
 Pinta.ImageManipulation is licensed under the MIT license.
-See `license-mit.txt` for the MIT License
+See `license-mit.txt` for the MIT License.
 
 Code from Paint.Net 3.36 is used under the MIT License and retains the
 original headers on source files.

@@ -81,6 +81,9 @@ namespace Pinta.ImageManipulation
 
 		protected virtual void RenderLoop (ISurface src, ISurface dst, Rectangle roi, CancellationToken token)
 		{
+			src.BeginUpdate ();
+			dst.BeginUpdate ();
+
 			if (Settings.SingleThreaded || roi.Height <= 1) {
 				for (var y = roi.Y; y <= roi.Bottom; ++y) {
 					if (token.IsCancellationRequested)
@@ -93,6 +96,9 @@ namespace Pinta.ImageManipulation
 					RenderLine (src, dst, new Rectangle (roi.X, y, roi.Width, 1));
 				});
 			}
+
+			src.EndUpdate ();
+			dst.EndUpdate ();
 		}
 
 		/// <summary>

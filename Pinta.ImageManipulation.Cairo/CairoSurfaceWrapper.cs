@@ -9,6 +9,7 @@ namespace Pinta.ImageManipulation
 	{
 		private Cairo.ImageSurface surface;
 		private unsafe ImageManipulation.ColorBgra* data_ptr;
+		private int lock_count = 0;
 
 		public unsafe CairoSurfaceWrapper (Cairo.ImageSurface surface)
 		{
@@ -28,12 +29,20 @@ namespace Pinta.ImageManipulation
 
 		public override void BeginUpdate ()
 		{
+			lock_count++;
+
+			if (lock_count > 1)
+				return;
+
 			surface.Flush ();
 		}
 
 		public override void EndUpdate ()
 		{
-			surface.MarkDirty ();
+			lock_count--;
+
+			if (lock_count == 0)
+				surface.MarkDirty ();
 		}
 	}
 }

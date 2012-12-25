@@ -114,6 +114,8 @@ namespace Pinta.ImageManipulation
 
 		protected void ApplyLoop (ISurface src, Rectangle roi, CancellationToken token)
 		{
+			src.BeginUpdate ();
+
 			if (Settings.SingleThreaded || roi.Height <= 1) {
 				for (var y = roi.Y; y <= roi.Bottom; ++y) {
 					if (token.IsCancellationRequested)
@@ -128,10 +130,15 @@ namespace Pinta.ImageManipulation
 					Apply (dstPtr, roi.Width);
 				});
 			}
+
+			src.EndUpdate ();
 		}
 
 		protected void ApplyLoop (ISurface src, ISurface dst, Rectangle roi, CancellationToken token)
 		{
+			src.BeginUpdate ();
+			dst.BeginUpdate ();
+
 			if (Settings.SingleThreaded || roi.Height <= 1) {
 				for (var y = roi.Y; y <= roi.Bottom; ++y) {
 					if (token.IsCancellationRequested)
@@ -148,6 +155,9 @@ namespace Pinta.ImageManipulation
 					Apply (srcPtr, dstPtr, roi.Width);
 				});
 			}
+
+			src.EndUpdate ();
+			dst.EndUpdate ();
 		}
 	}
 }
