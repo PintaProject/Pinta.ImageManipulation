@@ -20,7 +20,14 @@ namespace Pinta.ImageManipulation.Effects
 
 		private static readonly double log2_10000 = Math.Log (10000);
 
-		public JuliaFractalEffect (int factor, int quality, int zoom, double angle)
+		/// <summary>
+		/// Creates a new effect that will draw a Julia fractal.
+		/// </summary>
+		/// <param name="factor">Factor to use. Valid range is 1 - 10.</param>
+		/// <param name="quality">Quality of the fractal. Valid range is 1 - 5.</param>
+		/// <param name="zoom">Size of the fractal. Valid range is 0 - 50.</param>
+		/// <param name="angle">Angle of the fractal to render.</param>
+		public JuliaFractalEffect (int factor = 4, int quality = 2, int zoom = 1, double angle = 0)
 		{
 			if (factor < 1 || factor > 10)
 				throw new ArgumentOutOfRangeException ("factor");

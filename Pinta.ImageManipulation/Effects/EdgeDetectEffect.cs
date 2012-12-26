@@ -16,7 +16,11 @@ namespace Pinta.ImageManipulation.Effects
 		private double[][] weights;
 		private double angle;
 
-		public EdgeDetectEffect (double angle)
+		/// <summary>
+		/// Creates a new effect that enhances detected edges.
+		/// </summary>
+		/// <param name="angle">Angle used to determine edges.</param>
+		public EdgeDetectEffect (double angle = 45)
 		{
 			this.angle = angle;
 

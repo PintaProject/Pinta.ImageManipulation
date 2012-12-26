@@ -41,7 +41,12 @@ namespace Pinta.ImageManipulation.Effects
 			conv[4] = new int[] { -1, -1, -5, -1, -1 };
 		}
 
-		public InkSketchEffect (int inkOutline, int coloring)
+		/// <summary>
+		/// Creates a new effect that will make an image look like an ink sketch.
+		/// </summary>
+		/// <param name="inkOutline">Size of the ink outline. Valid range is 0 - 99.</param>
+		/// <param name="coloring">Amount of color to keep. Valid range is 0 - 100.</param>
+		public InkSketchEffect (int inkOutline = 50, int coloring = 50)
 		{
 			if (inkOutline < 0 || inkOutline > 99)
 				throw new ArgumentOutOfRangeException ("inkOutline");

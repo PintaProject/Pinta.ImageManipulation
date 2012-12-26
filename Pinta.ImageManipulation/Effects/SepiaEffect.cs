@@ -22,6 +22,13 @@ namespace Pinta.ImageManipulation.Effects
 				ColorBgra.Black,
 				ColorBgra.White);
 
+		/// <summary>
+		/// Creates a new effect that will apply a sepia tone to an image.
+		/// </summary>
+		public SepiaEffect ()
+		{
+		}
+
 		#region Algorithm Code Ported From PDN
 		protected override void RenderLine (ISurface src, ISurface dest, Rectangle roi)
 		{

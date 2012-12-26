@@ -16,7 +16,11 @@ namespace Pinta.ImageManipulation.Effects
 		private int radius;
 		private int[] w;
 
-		public GaussianBlurEffect (int radius)
+		/// <summary>
+		/// Creates a new effect that will apply a Gaussian blur to an image.
+		/// </summary>
+		/// <param name="radius">Radius to use for blur (higher is blurrier). Valid range is 0 - 200.</param>
+		public GaussianBlurEffect (int radius = 2)
 		{
 			if (radius < 0 || radius > 200)
 				throw new ArgumentOutOfRangeException ("radius");

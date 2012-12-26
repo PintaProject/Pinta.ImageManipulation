@@ -16,7 +16,11 @@ namespace Pinta.ImageManipulation.Effects
 		private int amount;
 		private Random random = new Random ();
 
-		public FrostedGlassEffect (int amount)
+		/// <summary>
+		/// Creates a new effect that applies a frosted glass look to an image.
+		/// </summary>
+		/// <param name="amount">Amount of effect to apply. Valid range is 1 - 10.</param>
+		public FrostedGlassEffect (int amount = 1)
 		{
 			if (amount < 1 || amount > 10)
 				throw new ArgumentOutOfRangeException ("amount");

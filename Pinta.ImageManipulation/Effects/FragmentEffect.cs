@@ -17,7 +17,13 @@ namespace Pinta.ImageManipulation.Effects
 		private int distance;
 		private double rotation;
 
-		public FragmentEffect (int fragments, int distance, double rotation)
+		/// <summary>
+		/// Creates a new effect that makes an image look fragmented.
+		/// </summary>
+		/// <param name="fragments">Number of fragments to apply. Valid range is 2 - 50.</param>
+		/// <param name="distance">Distance between fragments. Valid range is 0 - 100.</param>
+		/// <param name="rotation">Angle to apply.</param>
+		public FragmentEffect (int fragments = 4, int distance = 8, double rotation = 0)
 		{
 			if (fragments < 2 || fragments > 50)
 				throw new ArgumentOutOfRangeException ("fragments");

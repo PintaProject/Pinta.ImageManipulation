@@ -15,6 +15,13 @@ namespace Pinta.ImageManipulation.Effects
 	public class InvertColorsEffect : BaseEffect
 	{
 		private InvertOp op = new InvertOp ();
+		
+		/// <summary>
+		/// Creates a new effect that will invert the colors of an image.
+		/// </summary>
+		public InvertColorsEffect ()
+		{
+		}
 
 		#region Algorithm Code Ported From PDN
 		protected override void RenderLine (ISurface src, ISurface dest, Rectangle roi)

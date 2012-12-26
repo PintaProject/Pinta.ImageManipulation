@@ -16,7 +16,12 @@ namespace Pinta.ImageManipulation.Effects
 		private int radius;
 		private int percentile;
 
-		public MedianEffect (int radius, int percentile)
+		/// <summary>
+		/// Creates a new effect that will apply a median effect to the image.
+		/// </summary>
+		/// <param name="radius">Radius to consider for median. Valid range is 1 - 200.</param>
+		/// <param name="percentile">Percentile to use for median. Valid range is 0 - 100.</param>
+		public MedianEffect (int radius = 10, int percentile = 50)
 		{
 			if (radius < 1 || radius > 200)
 				throw new ArgumentOutOfRangeException ("radius");

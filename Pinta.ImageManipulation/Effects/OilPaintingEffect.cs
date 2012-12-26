@@ -16,7 +16,12 @@ namespace Pinta.ImageManipulation.Effects
 		private int brush_size;
 		private int coarseness;
 
-		public OilPaintingEffect (int brushSize, int coarseness)
+		/// <summary>
+		/// Creates a new effect that will make the image look like an oil painting.
+		/// </summary>
+		/// <param name="brushSize">Size of the brush to use. Valid range is 1 - 8.</param>
+		/// <param name="coarseness">Coarseness of the brush to use. Valid range is 3 - 255.</param>
+		public OilPaintingEffect (int brushSize = 3, int coarseness = 50)
 		{
 			if (brushSize < 1 || brushSize > 8)
 				throw new ArgumentOutOfRangeException ("brushSize");

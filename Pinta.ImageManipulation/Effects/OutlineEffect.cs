@@ -16,7 +16,12 @@ namespace Pinta.ImageManipulation.Effects
 		private int thickness;
 		private int intensity;
 
-		public OutlineEffect (int thickness, int intensity)
+		/// <summary>
+		/// Creates a new effect that will outline the edges of an image.
+		/// </summary>
+		/// <param name="thickness">Thickness of the outline. Valid range is 1 - 200.</param>
+		/// <param name="intensity">Intesity of the outline. Valid range is 0 - 100.</param>
+		public OutlineEffect (int thickness = 3, int intensity = 50)
 		{
 			if (thickness < 1 || thickness > 200)
 				throw new ArgumentOutOfRangeException ("thickness");

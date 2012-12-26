@@ -15,7 +15,16 @@ namespace Pinta.ImageManipulation.Effects
 	{
 		private double amount;
 
-		public PolarInversionEffect (double amount, int quality, Point centerOffset, WarpEdgeBehavior edgeBehavior, ColorBgra primaryColor, ColorBgra secondaryColor)
+		/// <summary>
+		/// Creates a new effect that will apply a polar inversion to an image.
+		/// </summary>
+		/// <param name="amount">Amount of inversion. Valid range is -4 - 4.</param>
+		/// <param name="quality">Quality of the inversion. Valid range is 1 - 5.</param>
+		/// <param name="centerOffset">Center of the inversion.</param>
+		/// <param name="edgeBehavior">Edge behavior of the inversion.</param>
+		/// <param name="primaryColor">Primary color of the inversion.</param>
+		/// <param name="secondaryColor">Secondary color of the inversion.</param>
+		public PolarInversionEffect (double amount = 0, int quality = 2, Point centerOffset = new Point (), WarpEdgeBehavior edgeBehavior = WarpEdgeBehavior.Reflect, ColorBgra primaryColor = new ColorBgra (), ColorBgra secondaryColor = new ColorBgra ())
 			: base (quality, centerOffset, edgeBehavior, primaryColor, secondaryColor)
 		{
 			if (amount < -4 || amount > 4)

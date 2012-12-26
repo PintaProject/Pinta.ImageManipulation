@@ -16,7 +16,12 @@ namespace Pinta.ImageManipulation.Effects
 		private int radius;
 		private double strength;
 
-		public ReduceNoiseEffect (int radius, double strength)
+		/// <summary>
+		/// Creates a new effect that will reduce the noise of an image.
+		/// </summary>
+		/// <param name="radius">Radius to consider when reducing noise. Valid range is 1 - 200.</param>
+		/// <param name="strength">Strength of reduction. Valid range is 0 - 1.</param>
+		public ReduceNoiseEffect (int radius = 6, double strength = 0.4)
 		{
 			if (radius < 1 || radius > 200)
 				throw new ArgumentOutOfRangeException ("radius");

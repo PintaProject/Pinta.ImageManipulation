@@ -16,7 +16,12 @@ namespace Pinta.ImageManipulation.Effects
 		private int amount;
 		private int antialias;
 
-		public TwistEffect (int amount, int antialias)
+		/// <summary>
+		/// Creates a new effect that will twist an image.
+		/// </summary>
+		/// <param name="amount">Amount of twist to apply. Valid range is -100 - 100.</param>
+		/// <param name="antialias">Amount of antialiasing to apply. Valid range is 0 - 5.</param>
+		public TwistEffect (int amount = 45, int antialias = 2)
 		{
 			if (amount < -100 || amount > 100)
 				throw new ArgumentOutOfRangeException ("amount");

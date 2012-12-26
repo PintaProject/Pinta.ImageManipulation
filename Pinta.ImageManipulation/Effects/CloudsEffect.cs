@@ -25,7 +25,16 @@ namespace Pinta.ImageManipulation.Effects
 		//private byte instanceSeed = unchecked ((byte)DateTime.Now.Ticks);
 		static private int[] permuteLookup = new int[512];
 
-		public CloudsEffect (int scale, int power, int seed, ColorBgra fromColor, ColorBgra toColor, BlendMode blendMode)
+		/// <summary>
+		/// Creates a new effect that will render clouds onto an image.
+		/// </summary>
+		/// <param name="scale">The relative size of the clouds. Valid range is 2 - 1000.</param>
+		/// <param name="power">The power of the clouds. Valid range is 0 - 100.</param>
+		/// <param name="seed">Seed value for random generator.</param>
+		/// <param name="fromColor">Initial cloud color.</param>
+		/// <param name="toColor">Final cloud color.</param>
+		/// <param name="blendMode">Blend mode to use when applying clouds.</param>
+		public CloudsEffect (int scale = 250, int power = 50, int seed = 0, ColorBgra fromColor = new ColorBgra (), ColorBgra toColor = new ColorBgra (), BlendMode blendMode = BlendMode.Normal)
 		{
 			if (scale < 2 || scale > 1000)
 				throw new ArgumentOutOfRangeException ("scale");

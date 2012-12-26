@@ -15,7 +15,11 @@ namespace Pinta.ImageManipulation.Effects
 	{
 		private int radius;
 
-		public UnfocusEffect (int radius)
+		/// <summary>
+		/// Creates a new effect that will unfocus an image.
+		/// </summary>
+		/// <param name="radius">Amount of points to consider when unfocusing. Valid values are 1 - 200.</param>
+		public UnfocusEffect (int radius = 4)
 		{
 			if (radius < 1 || radius > 200)
 				throw new ArgumentOutOfRangeException ("radius");

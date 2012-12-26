@@ -51,7 +51,13 @@ namespace Pinta.ImageManipulation.Effects
 		private DesaturateOp desaturate_op;
 		private OverlayBlendOp overlay_op;
 
-		public SoftenPortraitEffect (int softness, int lighting, int warmth)
+		/// <summary>
+		/// Creates a new effect that will soften an image.
+		/// </summary>
+		/// <param name="softness">How much to soften the image. Valid range is 0 - 10.</param>
+		/// <param name="lighting">Amount of lighting to apply. Valid range is -20 - 20.</param>
+		/// <param name="warmth">Amount of warmth to apply. Valid range is 0 - 20.</param>
+		public SoftenPortraitEffect (int softness = 5, int lighting = 0, int warmth = 10)
 		{
 			if (softness < 0 || softness > 10)
 				throw new ArgumentOutOfRangeException ("softness");

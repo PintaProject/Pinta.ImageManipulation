@@ -16,7 +16,12 @@ namespace Pinta.ImageManipulation.Effects
 		private int amount;
 		private Point offset;
 
-		public ZoomBlurEffect (int amount, Point offset)
+		/// <summary>
+		/// Creates a new effect that will apply a zoom blur.
+		/// </summary>
+		/// <param name="amount">Amount of zoom to apply. Valid values are 0 - 200.</param>
+		/// <param name="offset">Origin point of the zoom blur.</param>
+		public ZoomBlurEffect (int amount = 10, Point offset = new Point ())
 		{
 			if (amount < 0 || amount > 200)
 				throw new ArgumentOutOfRangeException ("amount");

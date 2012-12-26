@@ -15,7 +15,11 @@ namespace Pinta.ImageManipulation.Effects
 	{
 		private int amount;
 
-		public SharpenEffect (int amount)
+		/// <summary>
+		/// Creates a new effect that will sharpen an image.
+		/// </summary>
+		/// <param name="amount">Amount of sharpness to apply. Valid range is 1 - 20.</param>
+		public SharpenEffect (int amount = 2)
 		{
 			if (amount < 1 || amount > 20)
 				throw new ArgumentOutOfRangeException ("amount");

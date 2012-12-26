@@ -28,7 +28,15 @@ namespace Pinta.ImageManipulation.Effects
 		private const double yOffsetBasis = -0.29;
 		private double yOffset = yOffsetBasis;
 
-		public MandelbrotFractalEffect (int factor, int quality, int zoom, double angle, bool invertColors)
+		/// <summary>
+		/// Creates a new effect that will draw a Julia fractal.
+		/// </summary>
+		/// <param name="factor">Factor to use. Valid range is 1 - 10.</param>
+		/// <param name="quality">Quality of the fractal. Valid range is 1 - 5.</param>
+		/// <param name="zoom">Size of the fractal. Valid range is 0 - 100.</param>
+		/// <param name="angle">Angle of the fractal to render.</param>
+		/// <param name="invertColors">Invert the fractal colors.</param>
+		public MandelbrotFractalEffect (int factor = 1, int quality = 2, int zoom = 10, double angle = 0, bool invertColors = false)
 		{
 			if (factor < 1 || factor > 10)
 				throw new ArgumentOutOfRangeException ("factor");

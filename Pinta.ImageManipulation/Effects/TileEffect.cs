@@ -17,7 +17,13 @@ namespace Pinta.ImageManipulation.Effects
 		private int tile_size;
 		private int intensity;
 
-		public TileEffect (double rotation, int tileSize, int intensity)
+		/// <summary>
+		/// Creates a new effect that will apply a tile effect to an image.
+		/// </summary>
+		/// <param name="rotation">Angle to rotate the tiles.</param>
+		/// <param name="tileSize">Size of the tiles. Valid range is 2 - 200.</param>
+		/// <param name="intensity">Intensity of the tiling effect. Valid range is -20 - 20.</param>
+		public TileEffect (double rotation = 30, int tileSize = 40, int intensity = 8)
 		{
 			if (tileSize < 2 || tileSize > 200)
 				throw new ArgumentOutOfRangeException ("tileSize");

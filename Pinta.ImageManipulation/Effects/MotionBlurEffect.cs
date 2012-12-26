@@ -17,7 +17,13 @@ namespace Pinta.ImageManipulation.Effects
 		private int distance;
 		private bool centered;
 
-		public MotionBlurEffect (double angle, int distance, bool centered)
+		/// <summary>
+		/// Creates a new effect that will apply a motion blur to an image.
+		/// </summary>
+		/// <param name="angle">Angle of the motion blur.</param>
+		/// <param name="distance">Distance to apply the blur. Valid range is 1 - 200.</param>
+		/// <param name="centered">Whether the blur is centered.</param>
+		public MotionBlurEffect (double angle = 25, int distance = 10, bool centered = true)
 		{
 			if (distance < 1 || distance > 200)
 				throw new ArgumentOutOfRangeException ("distance");

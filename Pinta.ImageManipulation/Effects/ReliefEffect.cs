@@ -15,7 +15,11 @@ namespace Pinta.ImageManipulation.Effects
 	{
 		private double angle;
 
-		public ReliefEffect (double angle)
+		/// <summary>
+		/// Creates a new effect that add depth to an image.
+		/// </summary>
+		/// <param name="angle">Angle to apply depth from.</param>
+		public ReliefEffect (double angle = 45)
 		{
 			this.angle = angle;
 		}

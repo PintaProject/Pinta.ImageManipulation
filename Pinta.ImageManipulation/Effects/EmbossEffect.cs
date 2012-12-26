@@ -15,7 +15,11 @@ namespace Pinta.ImageManipulation.Effects
 	{
 		private double angle;
 
-		public EmbossEffect (double angle)
+		/// <summary>
+		/// Creates a new effect that applies an embossed look.
+		/// </summary>
+		/// <param name="angle">Angle to apply emboss. Valid range is 0 - 360.</param>
+		public EmbossEffect (double angle = 0)
 		{
 			if (angle < 0 || angle > 360)
 				throw new ArgumentOutOfRangeException ("angle");

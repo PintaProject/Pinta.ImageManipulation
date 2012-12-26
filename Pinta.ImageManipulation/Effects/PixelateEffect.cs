@@ -15,7 +15,11 @@ namespace Pinta.ImageManipulation.Effects
 	{
 		private int cell_size;
 
-		public PixelateEffect (int cellSize)
+		/// <summary>
+		/// Creates a new effect that will pixelate an image.
+		/// </summary>
+		/// <param name="cellSize">Size of the pixelation. Valid range is 0 - 100.</param>
+		public PixelateEffect (int cellSize = 2)
 		{
 			if (cellSize < 0 || cellSize > 100)
 				throw new ArgumentOutOfRangeException ("cellSize");

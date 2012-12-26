@@ -17,7 +17,13 @@ namespace Pinta.ImageManipulation.Effects
 		private PointD offset;
 		private int quality;
 
-		public RadialBlurEffect (double angle, PointD offset, int quality)
+		/// <summary>
+		/// Creates a new effect that will apply a radial blur to an image.
+		/// </summary>
+		/// <param name="angle">Angle of the blur.</param>
+		/// <param name="offset">Center point of the blur.</param>
+		/// <param name="quality">Quality of the radial blur. Valid range is 1 - 5.</param>
+		public RadialBlurEffect (double angle = 2, PointD offset = new PointD (), int quality = 2)
 		{
 			if (quality < 1 || quality > 5)
 				throw new ArgumentOutOfRangeException ("quality");

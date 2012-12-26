@@ -16,7 +16,12 @@ namespace Pinta.ImageManipulation.Effects
 	{
 		private RedEyeRemoveOp op;
 
-		public RedEyeRemoveEffect (int tolerance, int saturation)
+		/// <summary>
+		/// Creates a new effect that will remove red within a certain tolerance from an image.
+		/// </summary>
+		/// <param name="tolerance">Tolerance of red to remove. Valid range is 0 - 100.</param>
+		/// <param name="saturation">Saturation of effect. Valid range is 0 - 100.</param>
+		public RedEyeRemoveEffect (int tolerance = 70, int saturation = 90)
 		{
 			if (tolerance < 0 || tolerance > 100)
 				throw new ArgumentOutOfRangeException ("tolerance");

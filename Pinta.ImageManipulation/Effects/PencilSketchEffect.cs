@@ -24,7 +24,12 @@ namespace Pinta.ImageManipulation.Effects
 		private int pencil_size;
 		private int color_range;
 
-		public PencilSketchEffect (int pencilSize, int colorRange)
+		/// <summary>
+		/// Creates a new effect that will make the image look like a pencil sketch.
+		/// </summary>
+		/// <param name="pencilSize">Size of the pencil to use. Valid range is 1 - 20.</param>
+		/// <param name="colorRange">Range of color to use. Valid range is -20 - 20.</param>
+		public PencilSketchEffect (int pencilSize = 2, int colorRange = 0)
 		{
 			if (pencilSize < 1 || pencilSize > 20)
 				throw new ArgumentOutOfRangeException ("pencilSize");

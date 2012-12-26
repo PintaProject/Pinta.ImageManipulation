@@ -22,7 +22,13 @@ namespace Pinta.ImageManipulation.Effects
 		private BrightnessContrastEffect contrast_effect;
 		private ScreenBlendOp screen_op;
 
-		public GlowEffect (int radius, int brightness, int contrast)
+		/// <summary>
+		/// Creates a new effect that will add a glowing effect to an image.
+		/// </summary>
+		/// <param name="radius">Radius used to blur the image (higher is blurrier). Valid range is 1 - 20.</param>
+		/// <param name="brightness">Brightness amount to apply.</param>
+		/// <param name="contrast">Contrast amount to apply.</param>
+		public GlowEffect (int radius = 6, int brightness = 10, int contrast = 10)
 		{
 			if (radius < 1 || radius > 20)
 				throw new ArgumentOutOfRangeException ("radius");
