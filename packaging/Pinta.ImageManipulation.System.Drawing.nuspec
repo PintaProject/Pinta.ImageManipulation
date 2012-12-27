@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Pinta.ImageManipulation.System.Drawing</id>
+        <version>1.0</version>
+        <title>Pinta Image Effects Library for System.Drawing</title>
+        <authors>Jonathan Pobst</authors>
+        <owners />
+        <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+        <projectUrl>http://pinta-project.com</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Pinta.ImageManipulation brings the power of Pinta and Paint.NET's effects in a simple, open source library for use in your applications.  Includes over 35 effects.
+
+This version is for use with System.Drawing.</description>
+        <dependencies>
+            <dependency id="Pinta.ImageManipulation" version="1.0" />
+        </dependencies>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System.Drawing" targetFramework="" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+        <file src="..\Pinta.ImageManipulation.System.Drawing\bin\Debug\Pinta.ImageManipulation.System.Drawing.dll" target="lib\Pinta.ImageManipulation.System.Drawing.dll" />
+        <file src="..\Pinta.ImageManipulation.System.Drawing\bin\Debug\Pinta.ImageManipulation.System.Drawing.xml" target="lib\Pinta.ImageManipulation.System.Drawing.xml" />
+    </files>
+</package>
