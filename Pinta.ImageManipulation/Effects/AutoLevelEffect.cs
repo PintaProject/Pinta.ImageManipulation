@@ -9,6 +9,7 @@
 
 using System;
 using Pinta.ImageManipulation.UnaryPixelOperations;
+using System.Threading;
 
 namespace Pinta.ImageManipulation.Effects
 {
@@ -24,15 +25,16 @@ namespace Pinta.ImageManipulation.Effects
 		}
 
 		#region Algorithm Code Ported From PDN
+		protected override void OnBeginRender (ISurface src, ISurface dst, Rectangle roi)
+		{
+			var histogram = new HistogramRgb ();
+			histogram.UpdateHistogram (src, src.Bounds);
+
+			op = histogram.MakeLevelsAuto ();
+		}
+
 		protected override void RenderLine (ISurface src, ISurface dest, Rectangle roi)
 		{
-			if (op == null) {
-				var histogram = new HistogramRgb ();
-				histogram.UpdateHistogram (src, src.Bounds);
-
-				op = histogram.MakeLevelsAuto ();
-			}
-
 			if (op.isValid)
 				op.Apply (src, dest, roi);
 		}

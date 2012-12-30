@@ -124,6 +124,8 @@ namespace Pinta.ImageManipulation
 			src.BeginUpdate ();
 			dst.BeginUpdate ();
 
+			OnBeginRender (src, dst, roi);
+
 			if (Settings.SingleThreaded || roi.Height <= 1) {
 				for (var y = roi.Y; y <= roi.Bottom; ++y) {
 					if (token.IsCancellationRequested)
@@ -150,6 +152,8 @@ namespace Pinta.ImageManipulation
 
 				surface.BeginUpdate ();
 				dst_wrap.BeginUpdate ();
+
+				OnBeginRender (surface, dst_wrap, roi);
 
 				if (Settings.SingleThreaded || roi.Height <= 1) {
 					for (var y = roi.Y; y <= roi.Bottom; ++y) {
@@ -210,6 +214,10 @@ namespace Pinta.ImageManipulation
 		protected virtual ColorBgra Render (ColorBgra color)
 		{
 			return color;
+		}
+
+		protected virtual void OnBeginRender (ISurface src, ISurface dst, Rectangle roi)
+		{
 		}
 	}
 }
