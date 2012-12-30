@@ -25,6 +25,7 @@
 // THE SOFTWARE.
 
 using System;
+using System.Threading;
 
 namespace Pinta.ImageManipulation
 {
@@ -52,7 +53,7 @@ namespace Pinta.ImageManipulation
 
 		public override void BeginUpdate ()
 		{
-			lock_count++;
+			Interlocked.Increment (ref lock_count);
 
 			if (lock_count > 1)
 				return;
@@ -62,7 +63,7 @@ namespace Pinta.ImageManipulation
 
 		public override void EndUpdate ()
 		{
-			lock_count--;
+			Interlocked.Decrement (ref lock_count);
 
 			if (lock_count == 0)
 				surface.MarkDirty ();
