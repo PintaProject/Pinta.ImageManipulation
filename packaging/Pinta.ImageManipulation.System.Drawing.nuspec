@@ -9,7 +9,7 @@
         <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
         <projectUrl>http://pinta-project.com</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Pinta.ImageManipulation brings the power of Pinta and Paint.NET's effects in a simple, open source library for use in your applications.  Includes over 35 effects.
+        <description>Pinta.ImageManipulation brings the power of Pinta's effects in a simple, open source library for use in your applications.  Includes over 35 effects.
 
 This version is for use with System.Drawing.</description>
         <dependencies>
