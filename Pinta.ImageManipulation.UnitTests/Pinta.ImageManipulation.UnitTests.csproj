@@ -55,6 +55,20 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BlendOperations\AdditiveBlendOpTest.cs" />
+    <Compile Include="BlendOperations\ColorBurnBlendOpTest.cs" />
+    <Compile Include="BlendOperations\ColorDodgeBlendOpTest.cs" />
+    <Compile Include="BlendOperations\XorBlendOpTest.cs" />
+    <Compile Include="BlendOperations\ScreenBlendOpTest.cs" />
+    <Compile Include="BlendOperations\ReflectBlendOpTest.cs" />
+    <Compile Include="BlendOperations\OverlayBlendOpTest.cs" />
+    <Compile Include="BlendOperations\NormalBlendOpTest.cs" />
+    <Compile Include="BlendOperations\NegationBlendOpTest.cs" />
+    <Compile Include="BlendOperations\MultiplyBlendOpTest.cs" />
+    <Compile Include="BlendOperations\LightenBlendOpTest.cs" />
+    <Compile Include="BlendOperations\GlowBlendOpTest.cs" />
+    <Compile Include="BlendOperations\DifferenceBlendOpTest.cs" />
+    <Compile Include="BlendOperations\DarkenBlendOpTest.cs" />
     <Compile Include="Effects\AutoLevelEffectTest.cs" />
     <Compile Include="Effects\BlackAndWhiteEffectTest.cs" />
     <Compile Include="Effects\BrightnessContrastEffectTest.cs" />
@@ -102,6 +116,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ExpectedBitmaps\additiveblend1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\additiveblend2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ExpectedBitmaps\autolevel1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -118,6 +138,36 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ExpectedBitmaps\bulge2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\colorblend1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\colorblend2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\colorburnblend1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\colorburnblend2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\colordodgeblend1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\colordodgeblend2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\darkenblend1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\darkenblend2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\differenceblend1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\differenceblend2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ExpectedBitmaps\edgedetect1.png">
@@ -156,6 +206,12 @@
     <Content Include="ExpectedBitmaps\glow2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ExpectedBitmaps\glowblend1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\glowblend2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ExpectedBitmaps\huesaturation1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -177,6 +233,12 @@
     <Content Include="ExpectedBitmaps\juliafractal2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ExpectedBitmaps\lightenblend1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\lightenblend2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ExpectedBitmaps\mandelbrotfractal1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -195,6 +257,24 @@
     <Content Include="ExpectedBitmaps\motionblur2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ExpectedBitmaps\multiplyblend1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\multiplyblend2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\negationblend1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\negationblend2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\normalblend1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\normalblend2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ExpectedBitmaps\oilpainting1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -205,6 +285,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ExpectedBitmaps\outline2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\overlayblend1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\overlayblend2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ExpectedBitmaps\pencilsketch1.png">
@@ -243,10 +329,22 @@
     <Content Include="ExpectedBitmaps\reducenoise2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ExpectedBitmaps\reflectblend1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\reflectblend2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ExpectedBitmaps\relief1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ExpectedBitmaps\relief2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\screenblend1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\screenblend2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ExpectedBitmaps\sepia1.png">
@@ -282,10 +380,22 @@
     <Content Include="ExpectedBitmaps\unfocus2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ExpectedBitmaps\xorblend1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExpectedBitmaps\xorblend2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ExpectedBitmaps\zoomblur1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ExpectedBitmaps\zoomblur2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SourceBitmaps\blend1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SourceBitmaps\blend2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SourceBitmaps\input.png">
