@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pinta.ImageManipulation.Sys
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pinta.ImageManipulation.Cairo", "Pinta.ImageManipulation.Cairo\Pinta.ImageManipulation.Cairo.csproj", "{E189D463-7CFC-4049-B455-6A6499AB0F65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pinta.ImageManipulation.UnitTests", "Pinta.ImageManipulation.UnitTests\Pinta.ImageManipulation.UnitTests.csproj", "{4E475700-9CC2-46DA-A6DA-F1835C6232E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,16 @@ Global
 		{E189D463-7CFC-4049-B455-6A6499AB0F65}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E189D463-7CFC-4049-B455-6A6499AB0F65}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E189D463-7CFC-4049-B455-6A6499AB0F65}.Release|x86.ActiveCfg = Release|Any CPU
+		{4E475700-9CC2-46DA-A6DA-F1835C6232E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E475700-9CC2-46DA-A6DA-F1835C6232E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E475700-9CC2-46DA-A6DA-F1835C6232E7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4E475700-9CC2-46DA-A6DA-F1835C6232E7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4E475700-9CC2-46DA-A6DA-F1835C6232E7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4E475700-9CC2-46DA-A6DA-F1835C6232E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E475700-9CC2-46DA-A6DA-F1835C6232E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E475700-9CC2-46DA-A6DA-F1835C6232E7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4E475700-9CC2-46DA-A6DA-F1835C6232E7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4E475700-9CC2-46DA-A6DA-F1835C6232E7}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
