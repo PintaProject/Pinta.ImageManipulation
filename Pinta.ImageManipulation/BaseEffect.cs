@@ -62,7 +62,7 @@ namespace Pinta.ImageManipulation
 		/// <param name="roi">A rectangle of interest (roi) specifying the area(s) to modify. Only these areas should be modified.</param>
 		public void Render (ISurface surface, Rectangle roi)
 		{
-			RenderLoop (surface, roi, CancellationToken.None);
+			RenderLoop (surface, roi, CancellationToken.None, null);
 		}
 
 		/// <summary>
@@ -73,7 +73,7 @@ namespace Pinta.ImageManipulation
 		/// <param name="roi">A rectangle of interest (roi) specifying the area(s) to modify. Only these areas should be modified.</param>
 		public void Render (ISurface src, ISurface dst, Rectangle roi)
 		{
-			RenderLoop (src, dst, roi, CancellationToken.None);
+			RenderLoop (src, dst, roi, CancellationToken.None, null);
 		}
 
 		public Task RenderAsync (ISurface surface)
@@ -111,20 +111,33 @@ namespace Pinta.ImageManipulation
 
 		public Task RenderAsync (ISurface surface, Rectangle roi, CancellationToken token)
 		{
-			return Task.Factory.StartNew (() => RenderLoop (surface, roi, token));
+			return Task.Factory.StartNew (() => RenderLoop (surface, roi, token, null));
 		}
 
 		public Task RenderAsync (ISurface src, ISurface dst, Rectangle roi, CancellationToken token)
 		{
-			return Task.Factory.StartNew (() => RenderLoop (src, dst, roi, token));
+			return Task.Factory.StartNew (() => RenderLoop (src, dst, roi, token, null));
 		}
 
-		protected virtual void RenderLoop (ISurface src, ISurface dst, Rectangle roi, CancellationToken token)
+		public Task RenderAsync (ISurface surface, Rectangle roi, CancellationToken token, IRenderProgress progress)
+		{
+			return Task.Factory.StartNew (() => RenderLoop (surface, roi, token, progress));
+		}
+
+		public Task RenderAsync (ISurface src, ISurface dst, Rectangle roi, CancellationToken token, IRenderProgress progress)
+		{
+			return Task.Factory.StartNew (() => RenderLoop (src, dst, roi, token, progress));
+		}
+
+		protected virtual void RenderLoop (ISurface src, ISurface dst, Rectangle roi, CancellationToken token, IRenderProgress progress)
 		{
 			src.BeginUpdate ();
 			dst.BeginUpdate ();
 
 			OnBeginRender (src, dst, roi);
+
+			var completed_lines = new bool[roi.Height];
+			var last_completed_index = 0;
 
 			if (Settings.SingleThreaded || roi.Height <= 1) {
 				for (var y = roi.Y; y <= roi.Bottom; ++y) {
@@ -132,10 +145,28 @@ namespace Pinta.ImageManipulation
 						return;
 
 					RenderLine (src, dst, new Rectangle (roi.X, y, roi.Width, 1));
+
+					completed_lines[y - roi.Top] = true;
+
+					if (progress != null) {
+						var last_y = FindLastCompletedLine (completed_lines, last_completed_index);
+						last_completed_index = last_y;
+						progress.CompletedRoi = new Rectangle (roi.X, roi.Y, roi.Width, last_y);
+						progress.PercentComplete = (float)last_y / (float)roi.Height;
+					}
 				}
 			} else {
 				ParallelExtensions.OrderedFor (roi.Y, roi.Bottom + 1, token, (y) => {
 					RenderLine (src, dst, new Rectangle (roi.X, y, roi.Width, 1));
+
+					completed_lines[y - roi.Top] = true;
+
+					if (progress != null) {
+						var last_y = FindLastCompletedLine (completed_lines, last_completed_index);
+						last_completed_index = last_y;
+						progress.CompletedRoi = new Rectangle (roi.X, roi.Y, roi.Width, last_y);
+						progress.PercentComplete = (float)last_y / (float)roi.Height;
+					}
 				});
 			}
 
@@ -143,7 +174,7 @@ namespace Pinta.ImageManipulation
 			dst.EndUpdate ();
 		}
 
-		protected unsafe virtual void RenderLoop (ISurface surface, Rectangle roi, CancellationToken token)
+		protected unsafe virtual void RenderLoop (ISurface surface, Rectangle roi, CancellationToken token, IRenderProgress progress)
 		{
 			var dst = new ColorBgra[surface.Height * surface.Width];
 
@@ -155,16 +186,37 @@ namespace Pinta.ImageManipulation
 
 				OnBeginRender (surface, dst_wrap, roi);
 
+				var completed_lines = new bool[roi.Height];
+				var last_completed_index = 0;
+
 				if (Settings.SingleThreaded || roi.Height <= 1) {
 					for (var y = roi.Y; y <= roi.Bottom; ++y) {
 						if (token.IsCancellationRequested)
 							return;
 
 						RenderLine (surface, dst_wrap, new Rectangle (roi.X, y, roi.Width, 1));
+
+						completed_lines[y - roi.Top] = true;
+
+						if (progress != null) {
+							var last_y = FindLastCompletedLine (completed_lines, last_completed_index);
+							last_completed_index = last_y;
+							progress.CompletedRoi = new Rectangle (roi.X, roi.Y, roi.Width, last_y);
+							progress.PercentComplete = (float)last_y / (float)roi.Height;
+						}
 					}
 				} else {
 					ParallelExtensions.OrderedFor (roi.Y, roi.Bottom + 1, token, (y) => {
 						RenderLine (surface, dst_wrap, new Rectangle (roi.X, y, roi.Width, 1));
+
+						completed_lines[y - roi.Top] = true;
+
+						if (progress != null) {
+							var last_y = FindLastCompletedLine (completed_lines, last_completed_index);
+							last_completed_index = last_y;
+							progress.CompletedRoi = new Rectangle (roi.X, roi.Y, roi.Width, last_y);
+							progress.PercentComplete = (float)last_y / (float)roi.Height;
+						}
 					});
 				}
 
@@ -218,6 +270,17 @@ namespace Pinta.ImageManipulation
 
 		protected virtual void OnBeginRender (ISurface src, ISurface dst, Rectangle roi)
 		{
+		}
+
+		// We always want to return a contiguous roi of lines completed, even
+		// if it means we don't report some lines that we've already completed.
+		private int FindLastCompletedLine (bool[] lines, int start)
+		{
+			for (var i = start; i < lines.Length; i++)
+				if (!lines[i])
+					return Math.Max (i - 1, 0);
+
+			return lines.Length - 1;
 		}
 	}
 }
