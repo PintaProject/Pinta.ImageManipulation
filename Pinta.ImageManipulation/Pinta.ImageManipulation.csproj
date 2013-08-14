@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="BaseEffect.cs" />
     <Compile Include="BaseSurface.cs" />
+    <Compile Include="BitVector2DSurfaceAdapter.cs" />
     <Compile Include="ColorBgraArrayWrapper.cs" />
     <Compile Include="DefaultRenderProgress.cs" />
     <Compile Include="Effects\AddNoiseEffect.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Enumerations\ColorTransferMode.cs" />
     <Compile Include="Histogram.cs" />
     <Compile Include="HistogramRGB.cs" />
+    <Compile Include="IBitVector2D.cs" />
     <Compile Include="IRenderProgress.cs" />
     <Compile Include="ParallelExtensions.cs" />
     <Compile Include="PixelBlendOperations\AdditiveBlendOp.cs" />
@@ -106,6 +108,7 @@
     <Compile Include="PixelOperations\BinaryPixelOp.cs" />
     <Compile Include="PixelOperations\UnaryPixelOp.cs" />
     <Compile Include="PixelOperations\UserBlendOp.cs" />
+    <Compile Include="Scanline.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SplineInterpolator.cs" />
     <Compile Include="Structs\PointD.cs" />
