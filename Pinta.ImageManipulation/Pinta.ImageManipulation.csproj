@@ -111,6 +111,8 @@
     <Compile Include="Scanline.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SplineInterpolator.cs" />
+    <Compile Include="Structs\SizeD.cs" />
+    <Compile Include="Structs\RectangleD.cs" />
     <Compile Include="Structs\PointD.cs" />
     <Compile Include="Structs\HsvColor.cs" />
     <Compile Include="Structs\RgbColor.cs" />

@@ -34,16 +34,16 @@ using System.Text;
 
 namespace Pinta.ImageManipulation
 {
-	public struct Rectangle
+	public struct RectangleD
 	{
-		public int X;
-		public int Y;
-		public int Height;
-		public int Width;
+		public double X;
+		public double Y;
+		public double Height;
+		public double Width;
 
-		public static readonly Rectangle Empty;
+		public static readonly RectangleD Empty;
 
-		public Rectangle (int x, int y, int width, int height)
+		public RectangleD (double x, double y, double width, double height)
 		{
 			X = x;
 			Y = y;
@@ -51,26 +51,25 @@ namespace Pinta.ImageManipulation
 			Height = height;
 		}
 
-		public Rectangle (Point location, Size size) : this (location.X, location.Y, size.Width, size.Height)
+		public RectangleD (Point location, Size size) : this (location.X, location.Y, size.Width, size.Height)
 		{
 		}
 
-		public int Bottom { get { return Y + Height - 1; } }
-		public bool IsEmpty { get { return X == 0 && Y == 0 && Width == 0 && Height == 0; } }
-		public int Left { get { return X; } }
-		public Point Location { get { return new Point (X, Y); } }
-		public int Right { get { return X + Width - 1; } }
-		public Size Size { get { return new Size (Height, Width); } }
-		public int Top { get { return Y; } }
+		public double Bottom { get { return Y + Height - 1; } }
+		public double Left { get { return X; } }
+		public PointD Location { get { return new PointD (X, Y); } }
+		public double Right { get { return X + Width - 1; } }
+		public SizeD Size { get { return new SizeD (Height, Width); } }
+		public double Top { get { return Y; } }
 
 		public bool Contains (int x, int y)
 		{
 			return ((x >= Left) && (x < Right) && (y >= Top) && (y < Bottom));
 		}
 
-		public void Intersect (Rectangle r)
+		public void Intersect (RectangleD r)
 		{
-			var new_r = Rectangle.Intersect (this, r);
+			var new_r = RectangleD.Intersect (this, r);
 
 			X = new_r.X;
 			Y = new_r.Y;
@@ -78,9 +77,9 @@ namespace Pinta.ImageManipulation
 			Height = new_r.Height;
 		}
 
-		public static Rectangle Intersect (Rectangle a, Rectangle b)
+		public static RectangleD Intersect (RectangleD a, RectangleD b)
 		{
-			return Rectangle.FromLTRB (
+			return RectangleD.FromLTRB (
 				Math.Max (a.Left, b.Left),
 				Math.Max (a.Top, b.Top),
 				Math.Min (a.Right, b.Right),
@@ -92,18 +91,18 @@ namespace Pinta.ImageManipulation
 			return String.Format ("{{X={0},Y={1},Width={2},Height={3}}}", X, Y, Width, Height);
 		}
 
-		public static Rectangle FromLTRB (int left, int top, int right, int bottom)
+		public static RectangleD FromLTRB (double left, double top, double right, double bottom)
 		{
-			return new Rectangle (left, top, right - left + 1,
+			return new RectangleD (left, top, right - left + 1,
 			bottom - top + 1);
 		}
 
-		public static bool operator == (Rectangle r1, Rectangle r2)
+		public static bool operator == (RectangleD r1, RectangleD r2)
 		{
 			return r1.X == r2.X && r1.Y == r2.Y && r1.Width == r2.Width && r1.Height == r2.Height;
 		}
 
-		public static bool operator != (Rectangle r1, Rectangle r2)
+		public static bool operator != (RectangleD r1, RectangleD r2)
 		{
 			return !(r1 == r2);
 		}
