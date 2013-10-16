@@ -43,5 +43,15 @@ namespace Pinta.ImageManipulation
 			X = x;
 			Y = y;
 		}
+
+		public double Magnitude ()
+		{
+			return Math.Sqrt (X * X + Y * Y);
+		}
+
+		public double Distance (PointD e)
+		{
+			return new PointD (X - e.X, Y - e.Y).Magnitude ();
+		}
 	}
 }

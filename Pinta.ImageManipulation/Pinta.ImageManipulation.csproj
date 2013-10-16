@@ -85,6 +85,14 @@
     <Compile Include="Effects\LocalHistogramEffect.cs" />
     <Compile Include="Enumerations\BlendMode.cs" />
     <Compile Include="Enumerations\ColorTransferMode.cs" />
+    <Compile Include="Gradients\BaseGradientRenderer.cs" />
+    <Compile Include="Gradients\BaseLinearGradientRenderer.cs" />
+    <Compile Include="Gradients\BaseLinearStraightGradientRenderer.cs" />
+    <Compile Include="Gradients\ConicalRenderer.cs" />
+    <Compile Include="Gradients\RadialRenderer.cs" />
+    <Compile Include="Gradients\LinearDiamondRenderer.cs" />
+    <Compile Include="Gradients\LinearClampedRenderer.cs" />
+    <Compile Include="Gradients\LinearReflectedRenderer.cs" />
     <Compile Include="Histogram.cs" />
     <Compile Include="HistogramRGB.cs" />
     <Compile Include="IBitVector2D.cs" />
