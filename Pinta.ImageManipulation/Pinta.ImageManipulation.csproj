@@ -116,6 +116,7 @@
     <Compile Include="PixelOperations\BinaryPixelOp.cs" />
     <Compile Include="PixelOperations\UnaryPixelOp.cs" />
     <Compile Include="PixelOperations\UserBlendOp.cs" />
+    <Compile Include="ScaleFactor.cs" />
     <Compile Include="Scanline.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SplineInterpolator.cs" />
