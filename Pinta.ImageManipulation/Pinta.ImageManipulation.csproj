@@ -131,6 +131,7 @@
     <Compile Include="Structs\ColorBgra.cs" />
     <Compile Include="PixelOperations\PixelOp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SurfaceDiff.cs" />
     <Compile Include="UnaryPixelOperations\ConstantOp.cs" />
     <Compile Include="UnaryPixelOperations\BlendConstantOp.cs" />
     <Compile Include="UnaryPixelOperations\AverageChannelsOp.cs" />
