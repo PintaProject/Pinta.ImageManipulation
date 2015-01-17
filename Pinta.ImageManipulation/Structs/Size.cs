@@ -54,5 +54,10 @@ namespace Pinta.ImageManipulation
 		{
 			return !(s1 == s2);
 		}
+
+		public override string ToString ()
+		{
+			return string.Format ("{{Width = {0} Height = {1}}}", Width, Height);
+		}
 	}
 }

@@ -43,5 +43,15 @@ namespace Pinta.ImageManipulation
 			X = x;
 			Y = y;
 		}
+
+		public static Point operator + (Point p1, Point p2)
+		{
+			return new Point (p1.X + p2.X, p1.Y + p2.Y);
+		}
+
+		public override string ToString ()
+		{
+			return string.Format ("{{X = {0} Y = {1}}}", X, Y);
+		}
 	}
 }
