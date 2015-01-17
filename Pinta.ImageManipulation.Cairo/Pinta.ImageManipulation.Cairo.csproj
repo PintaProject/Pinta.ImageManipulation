@@ -39,6 +39,7 @@
     <Reference Include="Mono.Cairo" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CairoExtensions.cs" />
     <Compile Include="CairoSurfaceWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
