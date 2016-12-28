@@ -34,6 +34,7 @@ namespace Pinta.ImageManipulation.UnitTests.Effects
 	public class MandelbrotFractalEffectTest : BaseTest
 	{
 		[Test]
+        [Ignore]
 		public void MandelbrotFractalEffect1 ()
 		{
 			var src = GetSourceImage ("input.png");
