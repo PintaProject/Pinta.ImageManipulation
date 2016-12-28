@@ -1,4 +1,4 @@
-﻿// 
+// 
 // DarkenBlendOpTest.cs
 //  
 // Author:
@@ -25,40 +25,34 @@
 // THE SOFTWARE.
 
 using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Pinta.ImageManipulation.PixelBlendOperations;
 
 namespace Pinta.ImageManipulation.UnitTests.BlendOperations
 {
-	[TestClass]
+	[TestFixture]
 	public class DarkenBlendOpTest : BaseTest
 	{
-		[TestMethod]
+		[Test]
 		public void DarkenBlendOp1 ()
 		{
 			var lhs = GetSourceImage ("blend1.png");
 			var rhs = GetSourceImage ("blend2.png");
 
-			var lhs_wrap = new BitmapWrapper (lhs);
-			var rhs_wrap = new BitmapWrapper (rhs);
-
 			var op = new DarkenBlendOp ();
-			op.Apply (lhs_wrap, rhs_wrap);
+			op.Apply (lhs, rhs);
 
 			Compare (rhs, "darkenblend1.png");
 		}
 
-		[TestMethod]
+		[Test]
 		public void DarkenBlendOp2 ()
 		{
 			var lhs = GetSourceImage ("blend1.png");
 			var rhs = GetSourceImage ("blend2.png");
 
-			var lhs_wrap = new BitmapWrapper (lhs);
-			var rhs_wrap = new BitmapWrapper (rhs);
-
 			var op = new DarkenBlendOp ();
-			op.Apply (rhs_wrap, lhs_wrap);
+			op.Apply (rhs, lhs);
 
 			Compare (lhs, "darkenblend2.png");
 		}

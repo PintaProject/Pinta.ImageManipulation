@@ -1,4 +1,4 @@
-﻿// 
+// 
 // SharpenEffectTest.cs
 //  
 // Author:
@@ -25,15 +25,15 @@
 // THE SOFTWARE.
 
 using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Pinta.ImageManipulation.Effects;
 
 namespace Pinta.ImageManipulation.UnitTests.Effects
 {
-	[TestClass]
+	[TestFixture]
 	public class SharpenEffectTest : BaseTest
 	{
-		[TestMethod]
+		[Test]
 		public void SharpenEffect1 ()
 		{
 			var src = GetSourceImage ("input.png");
@@ -44,7 +44,7 @@ namespace Pinta.ImageManipulation.UnitTests.Effects
 			Compare (src, "sharpen1.png");
 		}
 
-		[TestMethod]
+		[Test]
 		public void SharpenEffect2 ()
 		{
 			var src = GetSourceImage ("input.png");

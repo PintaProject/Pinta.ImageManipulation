@@ -24,53 +24,70 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Drawing;
+using System.Collections.Generic;
 using System.IO;
+using NUnit.Framework;
 
 namespace Pinta.ImageManipulation.UnitTests
 {
 	public abstract class BaseTest
 	{
-		protected Bitmap GetSourceImage (string name)
-		{
-			var bitmap = new Bitmap (Path.Combine ("SourceBitmaps", name));
+        private List<Cairo.Surface> surfaces;
 
-			return bitmap;
+        [SetUp]
+        public void Init ()
+        {
+            surfaces = new List<Cairo.Surface> ();
+        }
+
+        [TearDown]
+        public void Dispose ()
+        {
+            foreach (var surface in surfaces)
+                surface.Dispose ();
+
+            surfaces.Clear ();
+        }
+
+        private BaseSurface GetImage (string prefix, string name)
+        {
+            var surface = new Cairo.ImageSurface (Path.Combine (prefix, name));
+            surfaces.Add (surface);
+            return new CairoSurfaceWrapper (surface);
+        }
+
+        protected BaseSurface GetSourceImage (string name)
+		{
+            return GetImage ("SourceBitmaps", name);
 		}
 
-		protected Bitmap GetExpectedImage (string name)
+        protected BaseSurface GetExpectedImage (string name)
 		{
-			var bitmap = new Bitmap (Path.Combine ("ExpectedBitmaps", name));
-
-			return bitmap;
+            return GetImage ("ExpectedBitmaps", name);
 		}
 
-		protected unsafe void Compare (Bitmap actual, string expected)
+        protected unsafe void Compare (BaseSurface actual, string expected)
 		{
-			if (!File.Exists (Path.Combine ("ExpectedBitmaps", expected))) {
-				actual.Save (Path.Combine (@"C:\Users\Jonathan\Desktop\Bitmaps", expected));
-				return;
-			}
-
 			var exp_img = GetExpectedImage (expected);
 
-			var act_data = actual.LockBits (new System.Drawing.Rectangle (0, 0, actual.Width, actual.Height), System.Drawing.Imaging.ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-			var exp_data = exp_img.LockBits (new System.Drawing.Rectangle (0, 0, actual.Width, actual.Height), System.Drawing.Imaging.ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-
-			var act_ptr = (ColorBgra*)act_data.Scan0;
-			var exp_ptr = (ColorBgra*)exp_data.Scan0;
+            var act_data = actual.GetRowAddress (0);
+            var exp_data = exp_img.GetRowAddress (0);
 
 			var diff = 0;
 
 			for (var i = 0; i < actual.Width * actual.Height; i++)
-				if (*(act_ptr++) != *(exp_ptr++))
+                if (*(act_data++) != *(exp_data++))
 					diff++;
 
-			actual.UnlockBits (act_data);
-			exp_img.UnlockBits (exp_data);
-
+            // Save out the incorrect file.
+            if (diff != 0)
+            {
+                string results_dir = "TestResults";
+                Directory.CreateDirectory (results_dir);
+                var surface = ((CairoSurfaceWrapper)actual).Surface;
+                surface.WriteToPng (Path.Combine (results_dir, expected));
+            }
+            
 			Assert.AreEqual (0, diff);
 		}
 	}

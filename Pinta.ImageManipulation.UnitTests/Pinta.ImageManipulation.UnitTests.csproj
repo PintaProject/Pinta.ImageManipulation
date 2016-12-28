@@ -1,74 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Common configuration -->
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4E475700-9CC2-46DA-A6DA-F1835C6232E7}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Pinta.ImageManipulation.UnitTests</RootNamespace>
-    <AssemblyName>Pinta.ImageManipulation.UnitTests</AssemblyName>
+    <AssemblyName>Pinta.ImageManipulation.Tests</AssemblyName>
+    <RootNamespace>Pinta.ImageManipulation.Tests</RootNamespace>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
-    <IsCodedUITest>False</IsCodedUITest>
-    <TestProjectType>UnitTest</TestProjectType>
+
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ErrorReport>prompt</ErrorReport>
+    <Platform>AnyCPU</Platform>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+
+  <!-- Debug configuration -->
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
+    <DefineConstants>DEBUG</DefineConstants>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutputPath>bin\Debug</OutputPath>
   </PropertyGroup>
+
+  <!-- Release configuration -->
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <OutputPath>bin\Release</OutputPath>
   </PropertyGroup>
+
+  <!-- References -->
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Cairo" />
+    <Reference Include="nunit.framework" />
   </ItemGroup>
-  <Choose>
-    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-      </ItemGroup>
-    </When>
-    <Otherwise>
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
-      </ItemGroup>
-    </Otherwise>
-  </Choose>
+
+  <!-- Source files -->
   <ItemGroup>
+    <Compile Include="BaseTest.cs" />
     <Compile Include="BlendOperations\AdditiveBlendOpTest.cs" />
     <Compile Include="BlendOperations\ColorBurnBlendOpTest.cs" />
     <Compile Include="BlendOperations\ColorDodgeBlendOpTest.cs" />
-    <Compile Include="BlendOperations\XorBlendOpTest.cs" />
-    <Compile Include="BlendOperations\ScreenBlendOpTest.cs" />
-    <Compile Include="BlendOperations\ReflectBlendOpTest.cs" />
-    <Compile Include="BlendOperations\OverlayBlendOpTest.cs" />
-    <Compile Include="BlendOperations\NormalBlendOpTest.cs" />
-    <Compile Include="BlendOperations\NegationBlendOpTest.cs" />
-    <Compile Include="BlendOperations\MultiplyBlendOpTest.cs" />
-    <Compile Include="BlendOperations\LightenBlendOpTest.cs" />
-    <Compile Include="BlendOperations\GlowBlendOpTest.cs" />
-    <Compile Include="BlendOperations\DifferenceBlendOpTest.cs" />
     <Compile Include="BlendOperations\DarkenBlendOpTest.cs" />
+    <Compile Include="BlendOperations\DifferenceBlendOpTest.cs" />
+    <Compile Include="BlendOperations\GlowBlendOpTest.cs" />
+    <Compile Include="BlendOperations\LightenBlendOpTest.cs" />
+    <Compile Include="BlendOperations\MultiplyBlendOpTest.cs" />
+    <Compile Include="BlendOperations\NegationBlendOpTest.cs" />
+    <Compile Include="BlendOperations\NormalBlendOpTest.cs" />
+    <Compile Include="BlendOperations\OverlayBlendOpTest.cs" />
+    <Compile Include="BlendOperations\ReflectBlendOpTest.cs" />
+    <Compile Include="BlendOperations\ScreenBlendOpTest.cs" />
+    <Compile Include="BlendOperations\XorBlendOpTest.cs" />
     <Compile Include="Effects\AutoLevelEffectTest.cs" />
     <Compile Include="Effects\BlackAndWhiteEffectTest.cs" />
     <Compile Include="Effects\BrightnessContrastEffectTest.cs" />
@@ -102,19 +89,10 @@
     <Compile Include="Effects\FragmentEffectTest.cs" />
     <Compile Include="Effects\EdgeDetectEffectTest.cs" />
     <Compile Include="Effects\EmbossEffectTest.cs" />
-    <Compile Include="BaseTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Pinta.ImageManipulation.System.Drawing\Pinta.ImageManipulation.System.Drawing.csproj">
-      <Project>{90a335a2-f419-4085-a297-4a1c47d2ce68}</Project>
-      <Name>Pinta.ImageManipulation.System.Drawing</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Pinta.ImageManipulation\Pinta.ImageManipulation.csproj">
-      <Project>{f8df7505-b2e8-45cb-b7c4-b1a884bff582}</Project>
-      <Name>Pinta.ImageManipulation</Name>
-    </ProjectReference>
-  </ItemGroup>
+
+  <!-- Test files -->
   <ItemGroup>
     <Content Include="ExpectedBitmaps\additiveblend1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -402,32 +380,19 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
-  <Choose>
-    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-      </ItemGroup>
-    </When>
-  </Choose>
-  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
+  <ItemGroup>
+    <ProjectReference Include="..\Pinta.ImageManipulation\Pinta.ImageManipulation.csproj">
+      <Project>{f8df7505-b2e8-45cb-b7c4-b1a884bff582}</Project>
+      <Name>Pinta.ImageManipulation</Name>
+    </ProjectReference>
+
+    <ProjectReference Include="..\Pinta.ImageManipulation.Cairo\Pinta.ImageManipulation.Cairo.csproj">
+      <Project>{e189d463-7cfc-4049-b455-6a6499ab0f65}</Project>
+      <Name>Pinta.ImageManipulation.Cairo</Name>
+    </ProjectReference>
+  </ItemGroup>
+
 </Project>

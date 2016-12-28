@@ -1,4 +1,4 @@
-﻿// 
+// 
 // OutlineEffectTest.cs
 //  
 // Author:
@@ -25,15 +25,15 @@
 // THE SOFTWARE.
 
 using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Pinta.ImageManipulation.Effects;
 
 namespace Pinta.ImageManipulation.UnitTests.Effects
 {
-	[TestClass]
+	[TestFixture]
 	public class OutlineEffectTest : BaseTest
 	{
-		[TestMethod]
+		[Test]
 		public void OutlineEffect1 ()
 		{
 			var src = GetSourceImage ("input.png");
@@ -44,7 +44,7 @@ namespace Pinta.ImageManipulation.UnitTests.Effects
 			Compare (src, "outline1.png");
 		}
 
-		[TestMethod]
+		[Test]
 		public void OutlineEffect2 ()
 		{
 			var src = GetSourceImage ("input.png");

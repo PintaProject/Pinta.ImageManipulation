@@ -1,4 +1,4 @@
-﻿// 
+// 
 // ReflectBlendOpTest.cs
 //  
 // Author:
@@ -25,40 +25,34 @@
 // THE SOFTWARE.
 
 using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Pinta.ImageManipulation.PixelBlendOperations;
 
 namespace Pinta.ImageManipulation.UnitTests.BlendOperations
 {
-	[TestClass]
+	[TestFixture]
 	public class ReflectBlendOpTest : BaseTest
 	{
-		[TestMethod]
+		[Test]
 		public void ReflectBlendOp1 ()
 		{
 			var lhs = GetSourceImage ("blend1.png");
 			var rhs = GetSourceImage ("blend2.png");
 
-			var lhs_wrap = new BitmapWrapper (lhs);
-			var rhs_wrap = new BitmapWrapper (rhs);
-
 			var op = new ReflectBlendOp ();
-			op.Apply (lhs_wrap, rhs_wrap);
+			op.Apply (lhs, rhs);
 
 			Compare (rhs, "reflectblend1.png");
 		}
 
-		[TestMethod]
+		[Test]
 		public void ReflectBlendOp2 ()
 		{
 			var lhs = GetSourceImage ("blend1.png");
 			var rhs = GetSourceImage ("blend2.png");
 
-			var lhs_wrap = new BitmapWrapper (lhs);
-			var rhs_wrap = new BitmapWrapper (rhs);
-
 			var op = new ReflectBlendOp ();
-			op.Apply (rhs_wrap, lhs_wrap);
+			op.Apply (rhs, lhs);
 
 			Compare (lhs, "reflectblend2.png");
 		}

@@ -1,4 +1,4 @@
-﻿// 
+// 
 // AutoLevelEffectTest.cs
 //  
 // Author:
@@ -25,15 +25,15 @@
 // THE SOFTWARE.
 
 using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Pinta.ImageManipulation.Effects;
 
 namespace Pinta.ImageManipulation.UnitTests.Effects
 {
-	[TestClass]
+	[TestFixture]
 	public class AutoLevelEffectTest : BaseTest
 	{
-		[TestMethod]
+		[Test]
 		public void AutoLevelEffect1 ()
 		{
 			var src = GetSourceImage ("input.png");

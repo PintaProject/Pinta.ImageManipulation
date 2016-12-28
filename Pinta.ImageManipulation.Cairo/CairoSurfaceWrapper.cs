@@ -51,6 +51,10 @@ namespace Pinta.ImageManipulation
 			get { return surface.Stride; }
 		}
 
+        public Cairo.ImageSurface Surface {
+            get { return surface; }
+        }
+
 		public override void BeginUpdate ()
 		{
 			Interlocked.Increment (ref lock_count);

@@ -1,4 +1,4 @@
-﻿// 
+// 
 // FrostedGlassEffectTest.cs
 //  
 // Author:
@@ -25,15 +25,15 @@
 // THE SOFTWARE.
 
 using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Pinta.ImageManipulation.Effects;
 
 namespace Pinta.ImageManipulation.UnitTests.Effects
 {
-	[TestClass]
+	[TestFixture]
 	public class FrostedGlassEffectTest : BaseTest
 	{
-		[TestMethod]
+		[Test]
 		[Ignore]	// Effect uses Random
 		public void FrostedGlass1 ()
 		{
@@ -45,7 +45,7 @@ namespace Pinta.ImageManipulation.UnitTests.Effects
 			Compare (src, "frostedglass1.png");
 		}
 
-		[TestMethod]
+		[Test]
 		[Ignore]	// Effect uses Random
 		public void FrostedGlass2 ()
 		{
