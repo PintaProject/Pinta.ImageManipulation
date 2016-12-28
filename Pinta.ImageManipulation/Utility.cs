@@ -19,7 +19,6 @@ namespace Pinta.ImageManipulation
 		/// Allows you to find the bounding box for a "region" that is described as an
 		/// array of bounding boxes.
 		/// </summary>
-		/// <param name="rectsF">The "region" you want to find a bounding box for.</param>
 		/// <returns>A RectangleF structure that surrounds the Region.</returns>
 		public static Rectangle GetRegionBounds (Rectangle[] rects, int startIndex, int length)
 		{
