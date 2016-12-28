@@ -45,7 +45,7 @@ namespace Pinta.ImageManipulation.Effects
 			float sin = (float)Math.Sin (rotation * Math.PI / 180.0);
 			float cos = (float)Math.Cos (rotation * Math.PI / 180.0);
 			float scale = (float)Math.PI / tile_size;
-			float intensity = tile_size;
+            float intensity = this.intensity;
 
 			intensity = intensity * intensity / 10 * Math.Sign (intensity);
 
