@@ -1,0 +1,8 @@
+language: csharp
+mono: 3.12.0
+install:
+  - sudo apt-get update -yqq
+  - sudo apt-get install nunit-console -yqq
+script:
+  - xbuild /p:Configuration=Release Pinta.ImageManipulation.sln
+  - nunit-console Pinta.ImageManipulation.UnitTests/bin/Release/Pinta.ImageManipulation.UnitTests.dll

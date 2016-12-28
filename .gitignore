@@ -1,5 +1,6 @@
 *.pidb
 *.suo
+*.swp
 *.userprefs
 Makefile
 Makefile.in
