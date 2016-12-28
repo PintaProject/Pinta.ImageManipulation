@@ -1,4 +1,6 @@
 language: csharp
+dist: trusty
+sudo: required
 mono: latest
 install:
   - sudo apt-get update -yqq
