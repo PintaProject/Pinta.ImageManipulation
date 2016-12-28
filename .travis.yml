@@ -5,4 +5,4 @@ install:
   - sudo apt-get install nunit-console -yqq
 script:
   - xbuild /p:Configuration=Release Pinta.ImageManipulation.sln
-  - nunit-console Pinta.ImageManipulation.UnitTests/bin/Release/Pinta.ImageManipulation.UnitTests.dll
+  - nunit-console Pinta.ImageManipulation.UnitTests/bin/Release/Pinta.ImageManipulation.Tests.dll
