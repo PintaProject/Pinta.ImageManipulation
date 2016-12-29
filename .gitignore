@@ -13,6 +13,7 @@ configure
 install-sh
 missing
 obj
+packages
 pinta
 pinta.pc
 intltool-extract.in

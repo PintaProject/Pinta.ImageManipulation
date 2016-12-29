@@ -7,13 +7,11 @@
     <AssemblyName>Pinta.ImageManipulation.Tests</AssemblyName>
     <RootNamespace>Pinta.ImageManipulation.Tests</RootNamespace>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ErrorReport>prompt</ErrorReport>
     <Platform>AnyCPU</Platform>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-
   <!-- Debug configuration -->
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,7 +20,6 @@
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
   </PropertyGroup>
-
   <!-- Release configuration -->
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>false</DebugSymbols>
@@ -30,15 +27,15 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
   </PropertyGroup>
-
   <!-- References -->
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Cairo" />
-    <Reference Include="nunit.framework" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.3.5.0\lib\net40\nunit.framework.dll</HintPath>
+    </Reference>
   </ItemGroup>
-
   <!-- Source files -->
   <ItemGroup>
     <Compile Include="BaseTest.cs" />
@@ -91,7 +88,6 @@
     <Compile Include="Effects\EmbossEffectTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-
   <!-- Test files -->
   <ItemGroup>
     <Content Include="ExpectedBitmaps\additiveblend1.png">
@@ -380,19 +376,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-
   <ItemGroup>
     <ProjectReference Include="..\Pinta.ImageManipulation\Pinta.ImageManipulation.csproj">
       <Project>{f8df7505-b2e8-45cb-b7c4-b1a884bff582}</Project>
       <Name>Pinta.ImageManipulation</Name>
     </ProjectReference>
-
     <ProjectReference Include="..\Pinta.ImageManipulation.Cairo\Pinta.ImageManipulation.Cairo.csproj">
       <Project>{e189d463-7cfc-4049-b455-6a6499ab0f65}</Project>
       <Name>Pinta.ImageManipulation.Cairo</Name>
     </ProjectReference>
   </ItemGroup>
-
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
 </Project>

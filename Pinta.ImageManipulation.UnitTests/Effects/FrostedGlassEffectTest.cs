@@ -34,7 +34,7 @@ namespace Pinta.ImageManipulation.UnitTests.Effects
 	public class FrostedGlassEffectTest : BaseTest
 	{
 		[Test]
-		[Ignore]	// Effect uses Random
+		[Ignore ("Effect uses Random")]
 		public void FrostedGlass1 ()
 		{
 			var src = GetSourceImage ("input.png");
@@ -46,7 +46,7 @@ namespace Pinta.ImageManipulation.UnitTests.Effects
 		}
 
 		[Test]
-		[Ignore]	// Effect uses Random
+		[Ignore ("Effect uses Random")]
 		public void FrostedGlass2 ()
 		{
 			var src = GetSourceImage ("input.png");

@@ -34,7 +34,7 @@ namespace Pinta.ImageManipulation.UnitTests.Effects
 	public class MotionBlurEffectTest : BaseTest
 	{
 		[Test]
-        [Ignore]
+        [Ignore ("Fails on Mono")]
 		public void MotionBlurEffect1 ()
 		{
 			var src = GetSourceImage ("input.png");
